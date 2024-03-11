@@ -6,7 +6,7 @@ public enum MovementType { Idle,Walk, Run }
 public enum AttackType { Normally}
 
 public enum ItemType {
-    Weapon
+    Sword
 }
 public enum AttributeType {
     ATK,

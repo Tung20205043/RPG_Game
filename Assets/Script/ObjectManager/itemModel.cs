@@ -19,7 +19,8 @@ public class itemModel : MonoBehaviour, IPool {
     public void Show() {
         gameObject.SetActive(true);
     }
-    private void OnMouseUp() {
+
+    public void ClaimItem() {
         InventoryManager.Instance.ReciveItem(this);
         ObjectPooling.Instance.PushItem(this, true);
     }
