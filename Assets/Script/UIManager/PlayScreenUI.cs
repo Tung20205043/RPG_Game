@@ -4,16 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayScreenUI : MonoBehaviour {
-    [SerializeField] private Button AttackButton;
+    
     [SerializeField] private PlayerController playerController;
+    [Header("Button")]
+    [SerializeField] private Button AttackButton;
     [SerializeField] private Button openButton;
     [SerializeField] private Button claimButton;
-
+    [SerializeField] private Button bagButton;
+    [SerializeField] private Button xButton;
+    [Header("")]
     [SerializeField] private itemModel item;
     public void Awake() {
         AttackButton.onClick.AddListener(AttackButtonClick);
         openButton.onClick.AddListener(OpenChestUI);
         claimButton.onClick.AddListener(ClaimItem);
+        bagButton.onClick.AddListener(() => BagView(true));
+        xButton.onClick.AddListener(() =>BagView(false));    
     }
 
     private void AttackButtonClick() {
@@ -22,6 +28,7 @@ public class PlayScreenUI : MonoBehaviour {
     private void OpenChestUI() {
         ChestManager.Instance.OpenChest();
         claimButton.gameObject.SetActive(true);
+        item.gameObject.SetActive(true);
     }
     private void ClaimItem() { 
         claimButton.gameObject.SetActive(false);
@@ -29,5 +36,13 @@ public class PlayScreenUI : MonoBehaviour {
     }
     public void SetActiveItem() {
         item.ClaimItem();
+    }
+    private void BagView(bool view) {
+        if (view) {
+            InventoryManager.Instance.Show();
+        } else {
+            InventoryManager.Instance.Hide();
+        }
+        bagButton.interactable = !view;
     }
 }
