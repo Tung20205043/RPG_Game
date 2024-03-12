@@ -9,8 +9,10 @@ public class InventorySlot : MonoBehaviour {
 
     public bool HasItem { get; private set; }
     public itemModel itemModel = null;
+    public ItemObject itemObj = null;
 
     public static UnityEvent<InventorySlot> EquipEvent = new UnityEvent<InventorySlot>();
+    private Button showItem;
 
 
     private RectTransform rect = null;
@@ -19,12 +21,14 @@ public class InventorySlot : MonoBehaviour {
     private void Awake() {
         EquipEvent.AddListener(OnEquip);
         rect = GetComponent<RectTransform>();
+        showItem = GetComponent<Button>();
+        showItem.onClick.AddListener(ViewItem);
     }
 
     public void Attach(itemModel data) {
         this.itemModel = data;
         HasItem = true;
-        ItemObject itemObj = Resources.Load<ItemObject>("Object/Items/" + data.itemName);
+        itemObj = Resources.Load<ItemObject>("Object/Items/" + data.itemName);
         iconImg.sprite = itemObj.itemIcon;
         iconImg.enabled = true;
     }
@@ -43,4 +47,11 @@ public class InventorySlot : MonoBehaviour {
             Attach(slot.itemModel);
         }
     }
+    private void ViewItem() {
+        if (this.itemModel == null) return;
+        foreach (var attribute in itemObj.attributes) {
+            Debug.Log("Type: " + attribute.type + ", Value: " + attribute.value);
+        }
+    }
+
 }
