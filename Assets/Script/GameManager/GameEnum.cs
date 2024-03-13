@@ -11,6 +11,6 @@ public enum ItemType {
 public enum AttributeType {
     ATK,
     DEF,
-    ATK_SP,
+    SP,
     HP
 }

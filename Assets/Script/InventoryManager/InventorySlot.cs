@@ -22,7 +22,7 @@ public class InventorySlot : MonoBehaviour {
         EquipEvent.AddListener(OnEquip);
         rect = GetComponent<RectTransform>();
         showItem = GetComponent<Button>();
-        showItem.onClick.AddListener(ViewItem);
+        showItem.onClick.AddListener(ShowViewItem);
     }
 
     public void Attach(itemModel data) {
@@ -47,11 +47,9 @@ public class InventorySlot : MonoBehaviour {
             Attach(slot.itemModel);
         }
     }
-    private void ViewItem() {
+    private void ShowViewItem() {
         if (this.itemModel == null) return;
-        foreach (var attribute in itemObj.attributes) {
-            Debug.Log("Type: " + attribute.type + ", Value: " + attribute.value);
-        }
+        ViewItem.Instance.ShowItem(itemObj);
     }
 
 }

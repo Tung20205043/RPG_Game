@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class PlayScreenUI : MonoBehaviour {
     [SerializeField] private Button xButton;
     [Header("")]
     [SerializeField] private itemModel item;
+    [SerializeField] private TextMeshProUGUI currentGold;
     public void Awake() {
         AttackButton.onClick.AddListener(AttackButtonClick);
         openButton.onClick.AddListener(OpenChestUI);
@@ -21,7 +23,9 @@ public class PlayScreenUI : MonoBehaviour {
         bagButton.onClick.AddListener(() => BagView(true));
         xButton.onClick.AddListener(() =>BagView(false));    
     }
-
+    private void Update() {
+        currentGold.text = CharacterStats.Instance.CurrentGold.ToString();
+    }
     private void AttackButtonClick() {
         playerController.Attack(); 
     }
