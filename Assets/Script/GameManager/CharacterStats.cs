@@ -50,7 +50,9 @@ public class CharacterStats : MonoBehaviour
     public float EnemyRunSpd => enemyRunSpd;
     public float EnemyAtkSpd => enemyAtkSpd;
 
-    public void PlusGold(float gold) { 
-        currentGold += gold;
+    public void ChangeGold(float gold, string state) { 
+       if (state == "plus")  currentGold += gold;
+       if (state == "minus")  currentGold -= gold;
     }
+    
 }

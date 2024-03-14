@@ -45,7 +45,7 @@ public class ViewItem : MonoBehaviour {
     }
     public void SellItem() {
         cvGr.Hide();
-        //CharacterStats.Instance.PlusGold( += 
+        Delegate.sellThisItem();
     }
     public void Return() {
         cvGr.Hide(); 

@@ -51,5 +51,12 @@ public class InventorySlot : MonoBehaviour {
         if (this.itemModel == null) return;
         ViewItem.Instance.ShowItem(itemObj);
     }
+    public InventorySlot() {
+        Delegate.sellThisItem = SellItem;
+    }
+
+    public void SellItem() {
+        CharacterStats.Instance.ChangeGold(GameConstants.goldSell[(int)itemObj.ItemLevel], "plus");
+    }
 
 }

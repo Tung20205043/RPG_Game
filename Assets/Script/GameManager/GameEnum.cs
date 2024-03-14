@@ -14,3 +14,8 @@ public enum AttributeType {
     SP,
     HP
 }
+
+public delegate void SellItem ();
+public class Delegate {
+    public static SellItem sellThisItem;
+}
