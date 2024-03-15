@@ -45,4 +45,8 @@ public class PlayerController : CharacterController {
         yield return new WaitForSeconds(CharacterStats.Instance.PlayerAtkSpd);
         characterAnimator.SetMovement(MovementType.Idle);
     }
+
+    public override void TakeDamage() {
+
+    }
 }

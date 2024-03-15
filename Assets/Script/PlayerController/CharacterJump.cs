@@ -23,3 +23,4 @@ public class CharacterJump : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); 
     }
 }
+

@@ -94,4 +94,8 @@ public class EnemyController : CharacterController
     protected bool StopFollowEnemy() {
         return Vector3.Distance(transform.position, wayPoints[currentWaypointIndex]) >= stopFollowRange;
     }
+
+    public override void TakeDamage() {
+        
+    }
 }

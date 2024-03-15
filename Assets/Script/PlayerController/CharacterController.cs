@@ -19,7 +19,7 @@ public abstract class CharacterController : MonoBehaviour
     protected abstract void Move();
     public abstract void Attack();
 
-
+    public abstract void TakeDamage();
     
 
 }
