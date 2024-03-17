@@ -14,7 +14,6 @@ public abstract class CharacterController : MonoBehaviour
     public string Name => characterName;
     protected virtual void Awake() {
         agent.Initialized();
-        //characterAnimator.Initialized();
     }
     protected abstract void Move();
     public abstract void Attack();
