@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class CharacterAttack : MonoBehaviour
 {
-    
+    private void Start() {
+        
+    }
 }
